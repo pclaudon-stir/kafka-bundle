@@ -1,5 +1,5 @@
 {
-    "name": "symfony-bundles/kafka-bundle",
+    "name": "pclaudon-stir/kafka-bundle",
     "type": "symfony-bundle",
     "description": "Symfony Kafka Bundle",
     "keywords": ["symfony", "bundle", "kafka", "rdkafka", "php"],
