@@ -1,0 +1,26 @@
+filter:
+    excluded_paths:
+        - tests/*
+        - vendor/*
+
+checks:
+    php:
+        code_rating: true
+        duplication: true
+
+build:
+    environment:
+        redis: false
+        docker: true
+
+    dependencies:
+        override:
+            - docker-compose up -d --remove-orphans --build
+            - docker-compose exec -T php /usr/local/bin/php /usr/local/bin/composer install --no-suggest
+
+    nodes:
+        analysis:
+            tests:
+                override:
+                    - php-scrutinizer-run
+                    - docker-compose exec -T php /usr/local/bin/php /app/vendor/bin/phpunit

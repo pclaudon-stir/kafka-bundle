@@ -1,0 +1,50 @@
+{
+    "name": "symfony-bundles/kafka-bundle",
+    "type": "symfony-bundle",
+    "description": "Symfony Kafka Bundle",
+    "keywords": ["symfony", "bundle", "kafka", "rdkafka", "php"],
+    "homepage": "https://github.com/symfony-bundles/kafka-bundle",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Dmitry Khaperets",
+            "email": "khaperets@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "SymfonyBundles\\KafkaBundle\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "SymfonyBundles\\KafkaBundle\\Tests\\": "tests"
+        }
+    },
+    "require": {
+        "php": "^7.4",
+        "ext-json": "*",
+        "ext-pcntl": "*",
+        "ext-rdkafka": ">=4.0",
+        "ext-mbstring": "*",
+        "symfony/console": "^5.0",
+        "symfony/framework-bundle": "^5.0",
+        "symfony/yaml": "^5.0"
+    },
+    "require-dev": {
+        "kwn/php-rdkafka-stubs": "^2.0",
+        "phpstan/phpstan": "^0.12",
+        "phpunit/php-code-coverage": "^8.0",
+        "phpunit/phpunit": "^9.1",
+        "psr/log": "^1.1"
+    },
+    "config": {
+        "preferred-install": "dist",
+        "sort-packages": true
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "3.x-dev"
+        }
+    }
+}

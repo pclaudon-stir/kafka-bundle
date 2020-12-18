@@ -1,0 +1,21 @@
+framework:
+    test: ~
+    secret: test
+
+services:
+    logger:
+        class: SymfonyBundles\KafkaBundle\Tests\Fixtures\Logger
+        public: true
+        autowire: true
+
+    SymfonyBundles\KafkaBundle\Tests\Fixtures\Consumer\DemoConsumer:
+        class: SymfonyBundles\KafkaBundle\Tests\Fixtures\Consumer\DemoConsumer
+        public: true
+        autowire: true
+        calls:
+            - ['setLogger', ['@logger']]
+
+    SymfonyBundles\KafkaBundle\Tests\Fixtures\DependencyInjection\:
+        resource: '../../DependencyInjection/*'
+        public: true
+        autowire: true

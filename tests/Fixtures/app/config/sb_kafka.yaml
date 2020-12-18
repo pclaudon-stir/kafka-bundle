@@ -1,0 +1,14 @@
+sb_kafka:
+    producers:
+        configuration:
+            group.id: 'main_group'
+            log.connection.close: 'false'
+            metadata.broker.list: 'kafka.intra:9092'
+            queue.buffering.max.messages: 100000
+
+    consumers:
+        configuration:
+            group.id: 'main_group'
+            auto.offset.reset: 'smallest'
+            log.connection.close: 'false'
+            metadata.broker.list: 'kafka.intra:9092'

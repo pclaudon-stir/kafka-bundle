@@ -1,0 +1,26 @@
+version: '3.2'
+
+services:
+    php:
+        build: .
+        volumes:
+            - ./:/app
+        depends_on:
+            - kafka.intra
+
+    kafka.intra:
+        image: wurstmeister/kafka
+        restart: 'no'
+        ports:
+            - 9092:9092
+        depends_on:
+            - zookeeper.intra
+        environment:
+            KAFKA_ZOOKEEPER_CONNECT: zookeeper.intra:2181
+            KAFKA_ADVERTISED_HOST_NAME: kafka.intra
+
+    zookeeper.intra:
+        image: wurstmeister/zookeeper
+        restart: 'no'
+        ports:
+            - 2181:2181
